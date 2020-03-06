@@ -1,0 +1,25 @@
+<div class="content">
+  <div class="content2">
+<nz-row [nzGutter]="16">
+    <nz-col [nzSpan]="8">
+      <nz-statistic [nzValue]="12 | number" [nzTitle]="'累计确诊'"></nz-statistic>
+    </nz-col>
+    <nz-col [nzSpan]="8">
+      <nz-statistic [nzValue]="201| number" [nzTitle]="'疑似病例'"></nz-statistic>
+    </nz-col>
+    <nz-col [nzSpan]="8">
+        <nz-statistic [nzValue]="300 | number" [nzTitle]="'确认健康'"></nz-statistic>
+      </nz-col>
+  </nz-row></div>
+  <nz-divider nzText="截止今日零点" nzOrientation="right"></nz-divider>
+  <div class="content3">
+  <div class="date"><nz-date-picker class='date2' [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker> </div>
+  <div nz-row class="row">
+    <div nz-col nzSpan="12">
+      <div id="lineChart" style="width: 600px;height:400px;"></div>
+    </div>
+    <div nz-col nzSpan="12">
+     
+    </div>
+  </div></div>
+  </div>

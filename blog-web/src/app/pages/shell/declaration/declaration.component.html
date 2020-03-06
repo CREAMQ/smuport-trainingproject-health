@@ -1,0 +1,30 @@
+<div class="content">
+<form nz-form [formGroup]="validateForm" class="form">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="condition" nzRequired>当前状况</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <nz-radio-group formControlName="condition" [nzButtonStyle]="'solid'" class="radio">
+        <label nz-radio-button nzValue="良好">良好</label>
+        <label nz-radio-button nzValue="疑似">疑似</label>
+        <label nz-radio-button nzValue="确诊">确诊</label>
+        </nz-radio-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="temperature">当前体温</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <input nz-input formControlName="temperature" id="temperature" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="position">所在城区</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+  <nz-cascader formControlName="position" [nzLoadData]="loadData"> </nz-cascader></nz-form-control>
+</nz-form-item>
+  <nz-form-item nz-row class="register-area">
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <button nz-button nzType="primary" (click)='submit()'>提交</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+</div>

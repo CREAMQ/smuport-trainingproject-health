@@ -1,0 +1,38 @@
+<nz-layout class="left-layout">
+  <nz-sider *ngIf="this.auth" class="">
+    <div class="logo"><span class="logo2">上海海事大学</span></div>
+    <div class="user">当前用户:{{this.username}}</div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzTitle="个人操作" nzIcon="user">
+        <ul>
+          <li nz-menu-item (click)='declaration()' nzIcon="mail">个人信息申报</li>
+          <li nz-menu-item (click)='userinfo()'>个人信息查询</li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="管理员操作" nzIcon="team" *ngIf="this.auth=='2'">
+        <ul>
+          <li nz-menu-item (click)='statistics()'>统计信息展示</li>
+          <li nz-menu-item (click)='usermanagement()'>用户数据管理</li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="疫情信息网站" nzIcon="link">
+        <ul>
+          <li nz-menu-item>网址1</li>
+          <li nz-menu-item>网址2</li>
+        </ul>
+      </li>
+    </ul>
+ </nz-sider>
+    
+ 
+  <nz-layout class="right-layout">
+    <nz-header class="header" *ngIf="this.auth">新冠病毒个人健康状况上报汇总系统</nz-header>
+    <nz-content>
+      <!-- <div class="content"> -->
+        <div>
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer *ngIf="this.auth">Ant Design ©2019 Implement By Angular</nz-footer>
+  </nz-layout>
+</nz-layout>

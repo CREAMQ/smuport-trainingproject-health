@@ -1,0 +1,86 @@
+<div class="content">
+<nz-table #editRowTable nzBordered="false" [nzData]="listOfData" class="tb">
+  <thead>
+    <tr>
+      <th nzWidth="15%">userid</th>
+      <th nzWidth="15%">username</th>
+      <th nzWidth="15%">usersex</th>
+      <th nzWidth="15%">userage</th>
+      <th nzWidth="15%">usertel</th>
+      <th nzWidth="15%">email</th>
+      <th nzWidth="10%">authorization</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of editRowTable.data">
+      <td>
+        <ng-container>
+          {{ data.userid }}
+        </ng-container>
+        <ng-template #nameInputTpl>
+          <input type="text" nz-input [(ngModel)]="editCache[data.id].data.userid" />
+        </ng-template>
+      </td>
+      <td>
+        <ng-container *ngIf="!editCache[data.id].edit; else usernameInputTpl">
+          {{ data.username }}
+        </ng-container>
+        <ng-template #usernameInputTpl>
+          <input type="text" nz-input [(ngModel)]="editCache[data.id].data.username" />
+        </ng-template>
+      </td>
+      <td>
+        <ng-container *ngIf="!editCache[data.id].edit; else usersexInputTpl">
+          {{ data.usersex }}
+        </ng-container>
+        <ng-template #usersexInputTpl>
+          <input type="text" nz-input [(ngModel)]="editCache[data.id].data.usersex" />
+        </ng-template>
+      </td>
+      <td>
+        <ng-container *ngIf="!editCache[data.id].edit; else userageInputTpl">
+          {{ data.userage }}
+        </ng-container>
+        <ng-template #userageInputTpl>
+          <input type="text" nz-input [(ngModel)]="editCache[data.id].data.userage" />
+        </ng-template>
+      </td>
+      <td>
+        <ng-container *ngIf="!editCache[data.id].edit; else usertelInputTpl">
+          {{ data.usertel }}
+        </ng-container>
+        <ng-template #usertelInputTpl>
+          <input type="text" nz-input [(ngModel)]="editCache[data.id].data.usertel" />
+        </ng-template>
+      </td>
+      <td>
+        <ng-container *ngIf="!editCache[data.id].edit; else emailInputTpl">
+          {{ data.email }}
+        </ng-container>
+        <ng-template #emailInputTpl>
+          <input type="text" nz-input [(ngModel)]="editCache[data.id].data.email" />
+        </ng-template>
+      </td>
+      <td>
+        <ng-container *ngIf="!editCache[data.id].edit; else authorizationInputTpl">
+          {{ data.authorization }}
+        </ng-container>
+        <ng-template #authorizationInputTpl>
+          <input type="text" nz-input [(ngModel)]="editCache[data.id].data.authorization" />
+        </ng-template>
+      </td>
+      <td>
+        <div class="editable-row-operations">
+          <ng-container *ngIf="!editCache[data.id].edit; else saveTpl">
+            <a (click)="startEdit(data.id)">Edit</a>
+          </ng-container>
+          <ng-template #saveTpl>
+            <a (click)="saveEdit(data.id)">Save</a>
+            <a nz-popconfirm nzTitle="Sure to cancel?" (nzOnConfirm)="cancelEdit(data.id)">Cancel</a>
+          </ng-template>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</nz-table></div>

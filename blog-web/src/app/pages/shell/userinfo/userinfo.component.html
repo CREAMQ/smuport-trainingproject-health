@@ -1,0 +1,62 @@
+<div class="content">
+<div class="title">用户个人信息</div>
+<nz-descriptions nzTitle="" nzBordered [nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }" class='test'>
+  <nz-descriptions-item nzTitle="用户编号">{{list.userid}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="用户名">{{this.username}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="性别">{{list.usersex}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="年龄">{{list.userage}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="联系电话">{{list.usertel}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="电子邮件">{{list.email}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="注册时间">{{list.regtime}}</nz-descriptions-item>
+</nz-descriptions>
+
+
+<nz-table 
+  #rowSelectionTable
+  nzBordered
+  [(nzPageSize)]="pageSize" 
+  [nzLoading]="loading"
+  [nzData]="[{}]"
+  [nzScroll]="{ y: '250px' }"
+  class="table">
+  <thead>
+    <tr>
+      <th width="82px"></th>
+      <th width="151px">健康状况</th>
+      <th width="145px">体温</th>
+      <th width="617px">所在地</th>
+      <th>申报日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of listOfCondition">
+      <td>
+        <ng-container>
+          {{ data.userid }}
+        </ng-container>
+      </td>
+      <td>
+        <ng-container>
+          {{ data.condition }}
+        </ng-container>
+      </td>
+      <td>
+        <ng-container>
+          {{ data.temperature }}
+        </ng-container>
+      </td>
+      <td>
+        <ng-container>
+          {{ data.position }}
+        </ng-container>
+      </td>
+      <td>
+        <ng-container>
+          {{ data.date }}
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+
+</div>
